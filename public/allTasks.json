@@ -1,0 +1,90 @@
+{ 
+    "task1": {
+      "task": "Complete homework",
+      "date": "25/11/2024",
+      "done": "false"
+    },
+    "task2": {
+      "task": "Buy groceries",
+      "date": "26/11/2024",
+      "done": "false"
+    },
+    "task3": {
+      "task": "Schedule dentist appointment",
+      "date": "27/11/2024",
+      "done": "false"
+    },
+    "task4": {
+      "task": "Clean the garage",
+      "date": "28/11/2024",
+      "done": "false"
+    },
+    "task5": {
+      "task": "Prepare presentation for work",
+      "date": "29/11/2024",
+      "done": "false"
+    },
+    "task6": {
+      "task": "Call mom",
+      "date": "30/11/2024",
+      "done": "false"
+    },
+    "task7": {
+      "task": "Go for a run",
+      "date": "01/12/2024",
+      "done": "false"
+    },
+    "task8": {
+      "task": "Pay utility bills",
+      "date": "02/12/2024",
+      "done": "false"
+    },
+    "task9": {
+      "task": "Attend team meeting",
+      "date": "03/12/2024"
+    },
+    "task10": {
+      "task": "Fix leaky faucet",
+      "date": "04/12/2024"
+    },
+    "task11": {
+      "task": "Plan weekend trip",
+      "date": "05/12/2024"
+    },
+    "task12": {
+      "task": "Submit expense report",
+      "date": "06/12/2024"
+    },
+    "task13": {
+      "task": "Renew gym membership",
+      "date": "07/12/2024"
+    },
+    "task14": {
+      "task": "Write blog post",
+      "date": "08/12/2024"
+    },
+    "task15": {
+      "task": "Update resume",
+      "date": "09/12/2024"
+    },
+    "task16": {
+      "task": "Get car serviced",
+      "date": "10/12/2024"
+    },
+    "task17": {
+      "task": "Organize bookshelf",
+      "date": "11/12/2024"
+    },
+    "task18": {
+      "task": "Practice guitar",
+      "date": "12/12/2024"
+    },
+    "task19": {
+      "task": "Start holiday shopping",
+      "date": "13/12/2024"
+    },
+    "task20": {
+      "task": "Volunteer at local shelter",
+      "date": "14/12/2024"
+    }
+  }

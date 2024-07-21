@@ -1,13 +1,32 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Navbar from './components/Navbar';
+import Today from './components/Today';
+
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
 
 const AppLayout = () => {
   return (
     <>
-      <div>ketan mehta</div>
+      <Navbar />
+      <Outlet />
     </>
   );
 };
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <AppLayout />,
+    children: [
+        {
+            path : "today",
+            element: <Today />
+        }
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-root.render(<AppLayout />);
+root.render(<RouterProvider router={router} />);
