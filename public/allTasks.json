@@ -2,7 +2,7 @@
     "task1": {
       "task": "Complete homework",
       "date": "25/11/2024",
-      "done": "false"
+      "done": "true"
     },
     "task2": {
       "task": "Buy groceries",
@@ -11,8 +11,7 @@
     },
     "task3": {
       "task": "Schedule dentist appointment",
-      "date": "27/11/2024",
-      "done": "false"
+      "date": "27/11/2024"
     },
     "task4": {
       "task": "Clean the garage",
