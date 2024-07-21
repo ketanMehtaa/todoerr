@@ -1,0 +1,55 @@
+/* Shimmer.css */
+.shimmer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .shimmer-task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 4px;
+  }
+  
+  .shimmer-checkbox {
+    width: 24px;
+    height: 24px;
+    background: #e0e0e0;
+    border-radius: 4px;
+  }
+  
+  .shimmer-text {
+    height: 16px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    width: 100%;
+  }
+  
+  .shimmer-task-name {
+    width: 70%;
+  }
+  
+  .shimmer-task-date {
+    width: 50%;
+    margin-top: 4px;
+  }
+  
+  /* Animation */
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+  
+  .shimmer-text, .shimmer-checkbox {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+  

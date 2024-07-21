@@ -1,24 +1,48 @@
 import { useEffect, useState } from 'react';
 import allTasks from '../../public/allTasks.json';
 import Task from './Task';
+import Shimmer from './Shimmer';
+import { getAuth } from 'firebase/auth';
 
 const Today = () => {
-  const [tasks, setTasks] = useState([]);
+  const [todos, setTodos] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  const handleToggle = (id) => {
-    setTasks(tasks.map((task) => (task.id === id ? { ...task, done: task.done === 'true' ? 'false' : 'true' } : task)));
+  const fetchTodos = async () => {
+    const auth = await getAuth();
+    const user = auth.currentUser;
+
+    if (user) {
+      try {
+        const userTodosRef = collection(db, 'users', user.uid, 'todos');
+        const querySnapshot = await getDocs(userTodosRef);
+        const todosList = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setTodos(todosList);
+      } catch (e) {
+        console.error('Error fetching todos:', e);
+      }
+    } else {
+      console.error('No user is signed in');
+    }
+    setLoading(false);
   };
 
   useEffect(() => {
-    // Convert the object to an array for easier mapping
-    const tasksArray = Object.entries(allTasks).map(([key, value]) => ({ id: key, ...value }));
-    setTasks(tasksArray);
+    fetchTodos();
+
   }, []);
 
+  if (loading) {
+    return (
+      <>
+        <Shimmer />
+      </>
+    );
+  }
   return (
     <>
-      {tasks.length > 0 ? (
-        tasks.map((task) => <Task task={task} onToggle={() => handleToggle(task.id)} />)
+      {! loading > 0 ? (
+        todos.map((task) => <Task task={task} onToggle={() => handleToggle(task.id)} />)
       ) : (
         <p>No tasks found.</p>
       )}

@@ -2,18 +2,28 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 16px;
+  font-size: 10px;
 }
 
 .box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.taskbox{
-    display: flex;
-    gap: 10px;
-    margin: 20px;
-    padding: 10px;
-    align-items: center;
-    font-size: 1.1rem;
+.taskbox {
+  display: flex;
+  gap: 10px;
+  margin: 20px;
+  padding: 10px;
+  align-items: center;
+  font-size: 1.8rem;
+  border-radius: 10px;
+  max-width: 370px;
+}
+.taskbox div {
+  font-size: 1.4rem;
+}
+@media only screen and (min-width: 600px) {
+  * {
+    font-size: 12px;
+  }
 }

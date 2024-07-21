@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Today from './components/Today';
 
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom';
+import Login from './components/Login';
 
 const AppLayout = () => {
   return (
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
         }
     ],
   },
+  {
+    path:'/login',
+    element: <Login />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
