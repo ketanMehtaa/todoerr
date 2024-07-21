@@ -3,8 +3,12 @@ import React from 'react';
 import { auth, googleProvider } from '../firebaseConfig';
 import { signInWithPopup } from 'firebase/auth';
 import { getAuth, GoogleAuthProvider ,onAuthStateChanged} from 'firebase/auth';
+import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const GoogleSignIn = () => {
+  const navigate = useNavigate();
+
   const handleGoogleSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -15,8 +19,11 @@ const GoogleSignIn = () => {
       const user = result.user;
       console.log('User Info: ', user);
 
+
       localStorage.setItem('userInfoFromFirebase', JSON.stringify(user));
       localStorage.setItem('accessToken', JSON.stringify(token));
+      navigate('/today');
+
     } catch (error) {
       console.error('Error during Google Sign-In: ', error.message);
     }
