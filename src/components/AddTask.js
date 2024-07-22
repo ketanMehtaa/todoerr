@@ -4,7 +4,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { useState } from 'react';
 
-const AddTask = () => {
+const AddTask = ({fetchTodos}) => {
   const [task, setTask] = useState('');
   const [date, setDate] = useState('');
 
@@ -31,6 +31,7 @@ const AddTask = () => {
         // Clear the form after submission
         setTask('');
         setDate('');
+        fetchTodos();
       } catch (e) {
         console.error('Error adding todo:', e);
       }
@@ -40,14 +41,14 @@ const AddTask = () => {
   };
 
   return (
-    <form onSubmit={addTodo}>
+    <form onSubmit={addTodo} className='addTaskform box-shadow'>
       <label>
         Task: <input name="task" type="text" value={task} onChange={handleTaskChange} />
       </label>
       <label>
         Date: <input name="date" type="date" value={date} onChange={handleDateChange} />
       </label>
-      <button type="submit">Submit form</button>
+      <button className='addtask-submit' type="submit">Submit form</button>
     </form>
   );
 };

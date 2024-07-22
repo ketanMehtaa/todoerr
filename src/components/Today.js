@@ -12,25 +12,23 @@ const Today = () => {
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
   const [user, loadingAuth] = useAuthState(auth);
-
-  useEffect(() => {
-    const fetchTodos = async () => {
-      if (user) {
-        try {
-          const userTodosRef = collection(db, 'users', user.uid, 'todos');
-          const querySnapshot = await getDocs(userTodosRef);
-          const todosList = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-          setTodos(todosList);
-        } catch (e) {
-          console.error('Error fetching todos:', e);
-        }
-      } else {
-        console.error('No user is signed in');
-        navigate('/login'); // Redirect to login if no user is signed in
+  const fetchTodos = async () => {
+    if (user) {
+      try {
+        const userTodosRef = collection(db, 'users', user.uid, 'todos');
+        const querySnapshot = await getDocs(userTodosRef);
+        const todosList = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+        setTodos(todosList);
+      } catch (e) {
+        console.error('Error fetching todos:', e);
       }
-      setLoading(false);
-    };
-
+    } else {
+      console.error('No user is signed in');
+      navigate('/login'); // Redirect to login if no user is signed in
+    }
+    setLoading(false);
+  };
+  useEffect(() => {
     if (!loadingAuth) {
       fetchTodos();
     }
@@ -42,7 +40,7 @@ const Today = () => {
 
   return (
     <>
-      <AddTask />
+      <AddTask fetchTodos={fetchTodos} />
       {todos.length > 0 ? (
         todos.map((task) => <Task key={task.id} task={task} onToggle={() => handleToggle(task.id)} />)
       ) : (
