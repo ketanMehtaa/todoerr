@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import * as ReactDOM from 'react-dom';
 import Navbar from './components/Navbar';
 import Today from './components/Today';
 
@@ -20,16 +20,16 @@ const router = createBrowserRouter([
     path: '/',
     element: <AppLayout />,
     children: [
-        {
-            path : "today",
-            element: <Today />
-        }
+      {
+        path: 'today',
+        element: <Today />,
+      },
     ],
   },
   {
-    path:'/login',
-    element: <Login />
-  }
+    path: '/login',
+    element: <Login />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
